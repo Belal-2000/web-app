@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Chiper
+{% endblock %}
+
+{% block content %}
+<h2>write your massge here</h2>
+<p>note that : in order to get your text back .. <br> you have to remember the secret key .</p>
+<form method="POST" action="#" style="margin: 20px 0;">
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Enter your massge here" id="floatingTextarea2" style="height: 100px"
+            name="msg"></textarea>
+        <label for="floatingTextarea2">Massge</label>
+    </div>
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Enter your massge here" id="floatingTextarea2"
+            style=' margin: 10px 0; ' name="key"></textarea>
+        <label for="floatingTextarea2">Secret key</label>
+    </div>
+    <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="case">
+            <option value="c">Chipher</option>
+            <option value="r">Re-Cipher</option>
+        </select>
+        <label for="floatingSelect">Select the case ..</label>
+    </div>
+    <br><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% if res %}
+<div class="form-floating">
+    <textarea class="form-control" placeholder="Enter your massge here" id="floatingTextarea2" style="height: 100px"
+        name="res">{{ res }}</textarea>
+    <label for="floatingTextarea2">Result</label>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block content %}
+<center>
+    <h1>Welcom
+        {% if 'name' in session %}
+        {{ session['name'] }}
+        {% endif %}
+    </h1>
+
+    {% if 'name' not in session %}
+    <h4>Here you can cipher massges between you and your friends using a secret key ..</h4>
+    <br>
+    <hr>
+    <br>
+    <h4>
+        All you have to do is simply sign in <br>
+        <a href="/sign-in">
+            <br>
+            <button type="button" class="btn btn-primary">Sign in</button></a>
+        <br><br>
+        or sign up if you dont have an account yet ..
+    </h4>
+    <br>
+    <a href="/sign-up">
+        <button type="button" class="btn btn-primary">Sign up</button>
+    </a>
+    {% else %}
+    <br>
+    <h3>You can cipher fron here -></h3>
+    <br>
+    <div class="flex-c">
+        <a href="/cipher">
+            <button type="button" class="btn btn-outline-primary">cipher now</button>
+        </a>
+    </div>
+    {% endif %}
+</center>
+
+{% endblock %}
